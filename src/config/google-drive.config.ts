@@ -2,8 +2,8 @@ import { google } from "googleapis";
 import path from "path";
 
 const auth = new google.auth.GoogleAuth({
-    keyFile: path.join(__dirname, "../../google-service-account.json"),
     scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON!),
 });
 
 export const drive = google.drive({
